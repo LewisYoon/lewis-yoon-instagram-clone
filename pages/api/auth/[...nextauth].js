@@ -17,6 +17,7 @@ export default NextAuth({
 
     // ...add more providers here
   ],
+  secret: process.env.JWT_SECRET,
   //   theme: {
   //     logo: { logo },
   //     brandColor: "#F13287",
@@ -31,7 +32,6 @@ export default NextAuth({
         .split(" ")
         .join("")
         .toLocaleLowerCase();
-
       session.user.uid = token.sub;
       return session;
     },
